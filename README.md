@@ -6,3 +6,4 @@
 <h2>🗂️ Folders, Chronological order</h2>
 <ol>
 <li>Python - Hello, World</li>
+<li>Python - if/else, loops, functions</li>
