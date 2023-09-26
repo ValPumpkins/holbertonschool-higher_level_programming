@@ -8,7 +8,7 @@ if __name__ == "__main__":
     if nbArguments == 0:
         print("0 arguments.")
     elif nbArguments == 1:
-        print("1 argument: ")
+        print("1 argument:")
         print("1: {}".format(arguments[0]))
     else:
         print("{} arguments:".format(nbArguments))
