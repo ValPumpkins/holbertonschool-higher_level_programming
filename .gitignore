@@ -2,5 +2,6 @@
 findIndex.py
 python-if_else_loops_functions/__pycache__/*.pyc
 python-import_modules/__pycache__/*.pyc
+python-data_structures/__pycache__/*.pyc
 python-import_modules/Pipfile
 python-import_modules/Pipfile.lock
