@@ -7,3 +7,4 @@ python-more_data_structures/__pycache__/*.pyc
 python-import_modules/Pipfile
 python-import_modules/Pipfile.lock
 
+.vscode/settings.json
