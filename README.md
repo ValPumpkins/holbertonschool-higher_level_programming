@@ -9,3 +9,5 @@
 <li>Python - if/else, loops, functions</li>
 <li>Python - Import Modules</li>
 <li>Python - Data Structures</li>
+<li>Python - More Data Structures</li>
+<li>Python - Exceptions</li>
