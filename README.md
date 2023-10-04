@@ -8,6 +8,6 @@
 <li>Python - Hello, World</li>
 <li>Python - if/else, loops, functions</li>
 <li>Python - Import Modules</li>
-<li>Python - Data Structures</li>
-<li>Python - More Data Structures</li>
+<li>Python - Data Structures : Lists, Tuples</li>
+<li>Python - More Data Structures : Set, Dictonary</li>
 <li>Python - Exceptions</li>
