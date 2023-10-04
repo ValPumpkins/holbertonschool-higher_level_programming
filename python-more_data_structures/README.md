@@ -14,3 +14,6 @@
 - **10-best_score.py** : Function that returns a key with the biggest integer value.
 - **11-multiply_list_map.py** : Function that returns a list with all values multiplied by a number without using any loops.
 - **12-roman_to_int.py** : Function that converts a roman numeral to an integer.
+- **100-weight_average** : Function that returns the weighted average of all integers tuple `(<score>, <weight>)`
+- **101-square_matrix_map.py** : Function that computes the square value of all integers of a matrix using `map`
+- **102-complex_delete.py** : Function that deletes keys with a specific value in a dictionary.
