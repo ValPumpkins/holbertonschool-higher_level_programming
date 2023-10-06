@@ -8,3 +8,4 @@ python-import_modules/Pipfile
 python-import_modules/Pipfile.lock
 
 .vscode/settings.json
+python-exceptions/__pycache__/*.pyc
