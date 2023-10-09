@@ -11,3 +11,6 @@
 <li>Python - Data Structures : Lists, Tuples</li>
 <li>Python - More Data Structures : Set, Dictonary</li>
 <li>Python - Exceptions</li>
+<li>Python - Classes & Ojbects</li>
+
+</ol>
