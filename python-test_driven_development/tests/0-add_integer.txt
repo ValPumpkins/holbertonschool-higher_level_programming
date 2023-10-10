@@ -1,7 +1,7 @@
 The 0-add_integer Module
 =======================
 
-Module to import to use ''add_integer```
+Module to import to use ``add_integer``
 This module defines an int addition function by returning the addition of its two arguments (a + b)
 
     >>> add_integer = __import__("0-add_integer").add_integer
