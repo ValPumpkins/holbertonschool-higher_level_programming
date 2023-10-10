@@ -77,10 +77,6 @@ Incorrect Usage:
     Traceback (most recent call last):
     TypeError: div must be a number
 
-    >>> matrix_divided([[1, " ", 3], [4, 5, 6]], 3)
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-
     >>> matrix = ([[4, 4], [4, 4]])
     >>> print(matrix_divided(matrix, None))
     Traceback (most recent call last):
@@ -121,3 +117,8 @@ Incorrect Usage:
     >>> print(matrix_divided([], 2))
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = [[42, 1337], [21, 3.14]]
+    >>> print(matrix_divided(matrix))
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
