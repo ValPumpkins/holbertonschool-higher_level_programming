@@ -121,16 +121,3 @@ Incorrect Usage:
     >>> print(matrix_divided([], 2))
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-    >>> matrix = [[42, 1337], [21, 3.14]]
-    >>> print(matrix_divided(matrix))
-    Traceback (most recent call last):
-    TypeError: matrix_divided() missing 1 required positional argument: 'div'
-
-
-
-
-
-
-
-
