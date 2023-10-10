@@ -44,6 +44,3 @@ def matrix_divided(matrix, div):
         new_matrix.append(new_row)
 
     return new_matrix
-
-matrix = ([[4, 4], [4, 4]])
-print(matrix_divided(matrix, 3.14))
