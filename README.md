@@ -13,5 +13,6 @@
 <li>Python - Exceptions</li>
 <li>Python - Classes & Ojbects</li>
 <li>Python - Test Driven Developmment</li>
+<li>Python - More Classes</li>
 
 </ol>
