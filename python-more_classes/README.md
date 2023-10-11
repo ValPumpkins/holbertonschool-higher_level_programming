@@ -4,7 +4,7 @@
 - **0-rectangle.py**
   - Empty class `Rectangle` that defines a rectangle
 - **1-rectangle.py**
-  - Class `Rectangle` that defines a rectangle by: (based on `0-rectangle.py`)
+  - Class `Rectangle` that defines a rectangle (based on `0-rectangle.py`)
       - Private instance attribute `width`
       - Property getter `def width(self):` to get `width`
       - Property setter `def width(self, value):` to set `width`
@@ -12,4 +12,34 @@
       - Property getter `def height(self):` to get `height`
       - Property setter `def height(self, value):` to set `height`
       - Instantiation with optional `width` and `height`: `def __init__(self, width=0, height=0):`
-- 
+- **2-rectangle.py**
+  - Class `Rectangle` that defines a rectangle (based on `1-rectangle.py`)
+      - Public instance method `def area(self):` returns the area of the rectangle
+      - Public instance attribute `def perimeter(self):` returns the permiter of the rectangle
+- **3-rectangle.py**
+  - Class `Rectangle` that defines a rectangle (based on `2-rectangle.py`)
+      - `print()` and `str()` should print the rectangle with the character `#`
+- **4-rectangle.py**
+  - Class `Rectangle` that defines a rectangle (based on `3-rectangle.py`)
+      - `repr()` should return a string representation of the rectangle to be able to recreate a new instance by usin `eval()`
+- **5-rectangle.py**
+  - Class `Rectangle` that defines a rectangle (based on `4-rectangle.py`)
+      - Method `__del__` that prints : `Bye rectangle...` when `Rectangle` is deleted
+- **6-rectangle.py**
+  - Class `Rectangle` that defines a rectangle (based on `5-rectangle.py`)
+      - Public class attribute `number_of_instances`
+          - initialized to `0`
+          - Incremented during each new instance instantiation
+          - Decremented during each instance deletion
+- **7-rectangle.py**
+  - Class `Rectangle` that defines a rectangle (based on `6-rectangle.py`)
+      - Public class attribute `class_symbol`
+          - initialized to `#`
+          - Used as symbol for string representation
+          - Can be any type
+- **8-rectangle.py**
+  - Class `Rectangle` that defines a rectangle (based on `7-rectangle.py`)
+      - Static method `def bigger_or_equal(rect_1, rect_2):` that returns the biggest rectangle based on the area
+- **9-rectangle.py**
+  - Class `Rectangle` that defines a rectangle (based on `8-rectangle.py`)
+      - Class method `def square(cls, size=0):` that returns a new Rectangle instance with `width == height == size`
