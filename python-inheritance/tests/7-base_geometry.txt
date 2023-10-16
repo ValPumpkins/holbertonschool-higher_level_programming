@@ -34,10 +34,6 @@ Usage:
     Traceback (most recent call last):
     ValueError: distance must be greater than 0
 
-    >>> bg.integer_validator("number", int('inf'))
-    Traceback (most recent call last):
-    ValueError: invalid literal for int() with base 10: 'inf'
-
     >>> bg.integer_validator(int('inf'), 2)
     Traceback (most recent call last):
     ValueError: invalid literal for int() with base 10: 'inf'
