@@ -11,3 +11,4 @@ python-import_modules/Pipfile.lock
 python-exceptions/__pycache__/*.pyc
 python-test_driven_development/__pycache__/*.pyc
 python-test_driven_development/tests/__pycache__/*.pyc
+python-inheritance/__pycache__/*.pyc
