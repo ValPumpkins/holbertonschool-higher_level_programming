@@ -3,6 +3,8 @@ The 7-base_geometry Module
 
 This modules defines a base geometry class BaseGeometry
 
+''integer_validator()'' returns True if a num is integer.
+
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 
@@ -12,13 +14,25 @@ Usage:
 
     >>> bg.integer_validator("my_int", 42)
 
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
     >>> bg.integer_validator("number", -15)
     Traceback (most recent call last):
     ValueError: number must be greater than 0
 
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
+
     >>> bg.integer_validator("numbers", 2, 3)
     Traceback (most recent call last):
     TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ValueError: distance must be greater than 0
 
     >>> bg.integer_validator("number", int('inf'))
     Traceback (most recent call last):
@@ -32,4 +46,10 @@ Usage:
     Traceback (most recent call last):
     TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
+    >>> bg.integer_validator(None, "Didier")
+    Traceback (most recent call last):
+    TypeError: None must be an integer
 
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
