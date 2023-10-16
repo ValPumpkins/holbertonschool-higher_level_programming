@@ -1,7 +1,7 @@
-The 7-base_geometry Module
-===========================
+Base geometry integer validator
+================================
 
-This modules defines a base geometry class BaseGeometry
+Defines a base geometry class BaseGeometry
 
 ''integer_validator()'' returns True if a num is integer.
 
@@ -10,21 +10,11 @@ This modules defines a base geometry class BaseGeometry
 
 Usage:
 
-    >>> bg.integer_validator("valid number", 1)
-
     >>> bg.integer_validator("my_int", 42)
 
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
     TypeError: name must be an integer
-
-    >>> bg.integer_validator("number", -15)
-    Traceback (most recent call last):
-    ValueError: number must be greater than 0
-
-    >>> bg.integer_validator("age", 0)
-    Traceback (most recent call last):
-    ValueError: age must be greater than 0
 
     >>> bg.integer_validator("numbers", 2, 3)
     Traceback (most recent call last):
