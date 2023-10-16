@@ -1,0 +1,47 @@
+The 1-my_list Module
+=======================
+
+This module defines an class `MyList` that inherists from `list`
+
+''print_sorted()'' returns the list sorted
+
+Usage:
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
+    >>> my_list.append(11)
+    >>> my_list.append(1)
+    >>> my_list.append(88)
+    >>> my_list.print_sorted()
+    [1, 11, 88]
+
+    >>> my_list.append(0)
+    >>> my_list.print_sorted()
+    [0, 1, 11, 88]
+
+    >>> my_list.append(-35)
+    >>> my_list.print_sorted()
+    [-35, 0, 1, 11, 88]
+
+    >>> my_list = MyList()
+    >>> my_list.append("Tetris")
+    >>> my_list.append("is")
+    >>> my_list.append("a")
+    >>> my_list.append("good")
+    >>> my_list.append("dog")
+    >>> print(my_list)
+    ['Tetris', 'is', 'a', 'good', 'dog']
+    >>> my_list.print_sorted()
+    ['Tetris', 'a', 'dog', 'good', 'is']
+
+    >>> my_list.append(NULL)
+    Traceback (most recent call last):
+    NameError: name 'NULL' is not defined
+
+    >>> my_list = MyList([42, "Universe", "Zone", 51])
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+    TypeError: '<' not supported between instances of 'str' and 'int'
