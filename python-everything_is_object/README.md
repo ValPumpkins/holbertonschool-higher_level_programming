@@ -49,3 +49,41 @@ This project is different from usual. The first part will only contain txt files
 >>> s2 = "Best School"
 >>> print(s1 is s2)
 ```
+- **10-answer.txt** : What do these 3 lines print ?
+```python
+>>> l1 = [1, 2, 3]
+>>> l2 = [1, 2, 3]
+>>> print(l1 == l2)
+```
+- **11-answer.txt** : What do these 3 lines print?
+```python
+>>> l1 = [1, 2, 3]
+>>> l2 = [1, 2, 3]
+>>> print(l1 is l2)
+```
+- **12-answer.txt** : What do these 3 lines print?
+```python
+>>> l1 = [1, 2, 3]
+>>> l2 = l1
+>>> print(l1 == l2)
+```
+- **13-answer.txt** : What do these 3 lines print?
+```python
+>>> l1 = [1, 2, 3]
+>>> l2 = l1
+>>> print(l1 is l2)
+```
+- **14-answer.txt** : What does this script print?
+```python
+l1 = [1, 2, 3]
+l2 = l1
+l1.append(4)
+print(l2)
+```
+- **15-answer.txt** : What does this script print?
+```python
+l1 = [1, 2, 3]
+l2 = l1
+l1 = l1 + [4]
+print(l2)
+```
