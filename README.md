@@ -15,5 +15,6 @@
 <li>Python - Test Driven Developmment</li>
 <li>Python - More Classes</li>
 <li>Python - Everything is object</li>
+<li>Python - Inheritance</li>
 
 </ol>
