@@ -5,7 +5,7 @@ This project is different from usual. The first part will only contain txt files
 
 - **0-answer.txt** : What function would you use to print the type of an object ?
 - **1-answer.txt** : How do you get the variable identifier (which is the memory address in the CPython implementation) ?
-- **2-answer.txt** : In the following code, do a and b point to the same object ? Answer with `Yes` or `No
+- **2-answer.txt** : In the following code, do a and b point to the same object ? Answer with `Yes` or `No`
 ```python
 >>> a = 89
 >>> b = 100
@@ -25,4 +25,27 @@ This project is different from usual. The first part will only contain txt files
 >>> a = 89
 >>> b = a + 1
 ```
-
+- **6-answer.txt** : What do these 3 lines print ?
+```python
+>>> s1 = "Best School"
+>>> s2 = s1
+>>> print(s1 == s2)
+```
+- **7-answer.txt** : What do these 3 lines print ?
+```python
+>>> s1 = "Best"
+>>> s2 = s1
+>>> print(s1 is s2)
+```
+- **8-answer.txt** : What do these 3 lines print ?
+```python
+>>> s1 = "Best School"
+>>> s2 = "Best School"
+>>> print(s1 == s2)
+```
+- **9-answer.txt** : What do these 3 lines print ?
+```python
+>>> s1 = "Best School"
+>>> s2 = "Best School"
+>>> print(s1 is s2)
+```
