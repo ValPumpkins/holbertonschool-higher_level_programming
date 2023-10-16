@@ -1,13 +1,27 @@
 The 1-my_list Module
 =======================
 
-This module defines an class `MyList` that inherists from `list`
-
 ''print_sorted()'' returns the list sorted
+
+>>> MyList = __import__('1-my_list').MyList
 
 Usage:
 
-    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
     >>> my_list = MyList()
     >>> my_list.print_sorted()
     []
@@ -41,6 +55,22 @@ Usage:
     ['Tetris', 'is', 'a', 'good', 'dog']
     >>> my_list.print_sorted()
     ['Tetris', 'a', 'dog', 'good', 'is']
+
+    >>> my_list = MyList()
+    >>> my_list.append("r")
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    ['r', 4, 2, 3, 5]
+
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+    TypeError: '<' not supported between instances of 'int' and 'str'
+
+    >>> print(my_list)
+    ['r', 4, 2, 3, 5]
 
     >>> my_list.append(NULL)
     Traceback (most recent call last):
