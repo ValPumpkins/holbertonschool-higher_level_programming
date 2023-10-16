@@ -168,4 +168,4 @@ a is b
 >>> a += [4]
 >>> id(a)
 ```
-- **Blog** : LINK HERE [WiP]
+- **Blog Post** : [LINK HERE](https://medium.com/@valentinepumpkins/python3-mutable-immutable-everything-is-object-eeb4891c88b0)
