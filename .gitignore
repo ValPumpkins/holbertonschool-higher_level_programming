@@ -15,4 +15,4 @@ python-inheritance/__pycache__/*.pyc
 
 
 python-input_output/file/*.txt
-python-input_output/json/*.json
+python-input_output/*.json
