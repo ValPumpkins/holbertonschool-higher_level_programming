@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Defines a save to JSON func """
+
 import json
 
 
