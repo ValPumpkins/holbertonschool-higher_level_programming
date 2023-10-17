@@ -17,8 +17,12 @@ class Student():
         self.age = age
 
     def to_json(self, attrs=None):
-        """ return dictionary representation of Student """
+        """ Return dictionary representation of Student
+        Args:
+            attrs (list): (Optional) The attributes to represent.
+        """
         if attrs is None:
             return self.__dict__
         if all(isinstance(attr, str) for attr in attrs):
-            return {key: value for key, value in self.__dict__.items() if key in attrs}
+            return {key: value for key, value
+                    in self.__dict__.items() if key in attrs}
