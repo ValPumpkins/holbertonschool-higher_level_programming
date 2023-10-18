@@ -16,3 +16,4 @@ python-inheritance/__pycache__/*.pyc
 
 python-input_output/file/*.txt
 python-input_output/*.json
+python-input_output/__pycache__/*.pyc
