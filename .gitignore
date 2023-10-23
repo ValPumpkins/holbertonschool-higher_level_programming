@@ -9,6 +9,7 @@ python-input_output/*.json
 # others files
 .DS_Store
 findIndex.py
+testmd.md
 
 # pip file
 python-import_modules/Pipfile
