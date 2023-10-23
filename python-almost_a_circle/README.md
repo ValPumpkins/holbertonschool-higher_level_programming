@@ -34,9 +34,10 @@ This class epresents a **rectangle** (inherits from `Base`)
 - **Public method** : `def display(self):` that prints in stdout the `Rectangle` instance with `#`
   - improvement by taking care of `x` & `y`
 - Overriding the `__str__` method to print a `Rectangle` instance in the format `[Rectangle] (<id>) <x>/<y>`
-- **Public method** : `def update(self, *args):`  that assigns an argument to each attribute :
+- **Public method** : `def update(self, *args, **kwargs):`  that updates an instance of a `Rectangle` with the given attributes :
     - 1st argument should be the `id` attribute
     - 2nd argument should be the `width` attribute
     - 3rd argument should be the `height` attribute
     - 4th argument should be the `x` attribute
     - 5th argument should be the `y` attribute
+  - `**kwargs` can be thought of as a double pointer to a dictionary : *key/value* and must be skipped if `*args` exists and is not empty
