@@ -18,16 +18,16 @@ and we will also learn about :
 - Serialization/Deserialization
 - JSON
 
-# 🆑 CLASSES
-## ⚾️ Base
+# 🟥 CLASSES
+## 🟧 Base
 
 This class will be the **“base”** of all other classes in this project
 - Private class attribute : `__nb_objects = 0`
 - Public instance attribute : `id`
 - Class constructor : `def __init__(self, id=None):`
 
-## 🧳 Rectangle
-This class epresents a **rectangle** (inherits from `Base`)
+## 🟩 Rectangle
+This class represents a **rectangle** (inherits from `Base`)
 - **Private instance attributes** : `__width`, `__height`, `__x` & `__y`
 - **Class constructor** : `def __init__(self, width, height, x=0, y=0, id=None):`
 - **Public method** : `def area(self):` that returns the area of the `Rectangle` instance
@@ -41,3 +41,9 @@ This class epresents a **rectangle** (inherits from `Base`)
     - 4th argument should be the `x` attribute
     - 5th argument should be the `y` attribute
   - `**kwargs` can be thought of as a double pointer to a dictionary : *key/value* and must be skipped if `*args` exists and is not empty
+
+## 🟪 Square
+This class represents a **square** (inherits from `Rectangle`)
+- **Class constructor** : `def __init__(self, size, x=0, y=0, id=None):`
+- **`__str__` method** should return `[Square] (<id>) <x>/<y> - <size>` - in our case, `width` or `height`
+
