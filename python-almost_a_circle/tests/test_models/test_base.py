@@ -14,6 +14,18 @@ class TestBase(unittest.TestCase):
         base2 = Base()
         self.assertEqual(base1.id, base2.id - 1)
 
+    def test_instance_creation_with_id(self):
+        base1 = Base(10)
+        self.assertEqual(base1.id, 10)
+
+    def test_more_creation(self):
+        base1 = Base(11)
+        base2 = Base(42)
+        base3 = Base(1337)
+        self.assertEqual(base1.id, 11)
+        self.assertEqual(base2.id, 42)
+        self.assertEqual(base3.id, 1337)
+
     def test_None_id(self):
         base1 = Base(None)
         base2 = Base(None)
@@ -21,10 +33,6 @@ class TestBase(unittest.TestCase):
 
     def test_str_id(self):
         self.assertEqual("hello", Base("hello").id)
-
-    def test_instance_creation_with_id(self):
-        obj1 = Base(10)
-        self.assertEqual(obj1.id, 10)
 
     def test_nb_instances_after_unique_id(self):
         b1 = Base()
