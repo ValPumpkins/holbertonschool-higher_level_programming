@@ -15,15 +15,15 @@ class TestRectangle(TestBase):
 
     # ATTRIBUTES
     def test_valid_attributes(self):
+        """ Testing valid attributes """
         rect = Rectangle(10, 20, 5, 5)
         self.assertEqual(rect.width, 10)
         self.assertEqual(rect.height, 20)
         self.assertEqual(rect.x, 5)
         self.assertEqual(rect.y, 5)
 
-    """ Testing invalid attributes """
-
     def test_invalid_width(self):
+        """ Testing invalid width """
         with self.assertRaises(ValueError):
             Rectangle(0, 20, 5, 5)
         with self.assertRaises(ValueError):
@@ -34,6 +34,7 @@ class TestRectangle(TestBase):
             Rectangle("hello", 20, 5, 5)
 
     def test_invalid_height(self):
+        """ Testing invalid height """
         with self.assertRaises(ValueError):
             Rectangle(10, 0, 5, 5)
         with self.assertRaises(ValueError):
@@ -44,6 +45,7 @@ class TestRectangle(TestBase):
             Rectangle(10, "hello", 5, 5)
 
     def test_invalid_x(self):
+        """ Testing invalid x """
         with self.assertRaises(ValueError):
             Rectangle(10, 20, -5, 5)
         with self.assertRaises(TypeError):
@@ -52,6 +54,7 @@ class TestRectangle(TestBase):
             Rectangle(10, 20, "hello", 5)
 
     def test_invalid_y(self):
+        """ Testing invalid y """
         with self.assertRaises(ValueError):
             Rectangle(10, 20, 5, -5)
         with self.assertRaises(TypeError):
@@ -120,19 +123,44 @@ class TestRectangle(TestBase):
 
     # STRING REP
     def test_str_representation(self):
+        """ Testing string rep """
         rect = Rectangle(5, 4, 1, 2, 42)
         expected_str = "[Rectangle] (42) 1/2 - 5/4"
         self.assertEqual(str(rect), expected_str)
 
     def test_str_representation_with_zero_coordinates(self):
+        """ Testing string rep with zero coordinates """
         rect = Rectangle(3, 3, 0, 0, 99)
         expected_str = "[Rectangle] (99) 0/0 - 3/3"
         self.assertEqual(str(rect), expected_str)
 
     def test_str_representation_with_negative_id(self):
+        """ Testing string rep with negative id """
         rect = Rectangle(2, 2, 2, 2, -1)
         expected_str = "[Rectangle] (-1) 2/2 - 2/2"
         self.assertEqual(str(rect), expected_str)
+
+    # UPDATE
+    def test_update_with_args(self):
+        """ Testing update with args """
+        rect = Rectangle(3, 2, 2, 1, 42)
+        rect.update(1, 4, 3, 0, 0)
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 4)
+        self.assertEqual(rect.height, 3)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
+
+    def test_update_with_incomplete_args(self):
+        """ Testing update with incomplete args """
+        rect = Rectangle(3, 2, 2, 1, 42)
+        rect.update(1, 4, 3)
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 4)
+        self.assertEqual(rect.height, 3)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 1)
+
 
 if __name__ == '__main__':
     unittest.main()
