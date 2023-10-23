@@ -151,13 +151,59 @@ class TestRectangle(TestBase):
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
 
-    def test_update_with_incomplete_args(self):
+    def test_update_incomplete_args(self):
         """ Testing update with incomplete args """
         rect = Rectangle(3, 2, 2, 1, 42)
         rect.update(1, 4, 3)
         self.assertEqual(rect.id, 1)
         self.assertEqual(rect.width, 4)
         self.assertEqual(rect.height, 3)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 1)
+
+    def test_update_no_arguments(self):
+        rect = Rectangle(3, 2, 2, 1, 42)
+        rect.update()
+        self.assertEqual(rect.id, 42)
+        self.assertEqual(rect.width, 3)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 1)
+
+    def test_update_kwargs_only(self):
+        """ Testing update with kwargs only """
+        rect = Rectangle(3, 2, 2, 1, 42)
+        rect.update(width=4, height=3, id=1)
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 4)
+        self.assertEqual(rect.height, 3)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 1)
+
+    def test_update_args_and_kwargs_combined1(self):
+        rect = Rectangle(3, 2, 2, 1, 42)
+        rect.update(1, 4, height=3)
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 4)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 1)
+
+    def test_update_args_and_kwargs_combined2(self):
+        rect = Rectangle(3, 2, 2, 1, 42)
+        rect.update(1, 3, width=4, x=0)
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 3)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 1)
+
+    def test_update_unknown_attributes(self):
+        rect = Rectangle(3, 2, 2, 1, 42)
+        rect.update(1, width=4, depth=3)
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 3)
+        self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 2)
         self.assertEqual(rect.y, 1)
 
