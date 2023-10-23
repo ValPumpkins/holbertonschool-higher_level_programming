@@ -22,7 +22,15 @@ and we will also learn about :
 ## ⚾️ Base
 
 This class will be the **“base”** of all other classes in this project
-- Private class attribute `__nb_objects = 0`
-- Public instance attribute `id`
-- Class constructor `def __init__(self, id=None):`
+- Private class attribute : `__nb_objects = 0`
+- Public instance attribute : `id`
+- Class constructor : `def __init__(self, id=None):`
 
+## 🧳 Rectangle
+This class epresents a **rectangle** (inherits from `Base`)
+- **Private instance attributes** : `__width`, `__height`, `__x` & `__y`
+- **Class constructor** : `def __init__(self, width, height, x=0, y=0, id=None):`
+- **Public method** : `def area(self):` that returns the area of the `Rectangle` instance
+- **Public method** : `def display(self):` that prints in stdout the `Rectangle` instance with `#`
+- Overriding the `__str__` method to print a `Rectangle` instance in the format `[Rectangle] (<id>) <x>/<y>`
+- 
