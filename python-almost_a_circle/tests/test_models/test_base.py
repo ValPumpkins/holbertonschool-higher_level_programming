@@ -26,6 +26,12 @@ class TestBase(unittest.TestCase):
         obj1 = Base(10)
         self.assertEqual(obj1.id, 10)
 
+    def test_nb_instances_after_unique_id(self):
+        b1 = Base()
+        b2 = Base(12)
+        b3 = Base()
+        self.assertEqual(b1.id, b3.id - 1)
+
     def test_negative_id(self):
         self.assertEqual(-5, Base(-5).id)
 
@@ -34,6 +40,21 @@ class TestBase(unittest.TestCase):
 
     def test_zero_id(self):
         self.assertEqual(0, Base(0).id)
+
+    def test_dict_id(self):
+        self.assertEqual({"a": 1, "b": 2}, Base({"a": 1, "b": 2}).id)
+
+    def test_list_id(self):
+        self.assertEqual([1, 2, 3], Base([1, 2, 3]).id)
+
+    def test_tuple_id(self):
+        self.assertEqual((1, 2), Base((1, 2)).id)
+
+    def test_inf_id(self):
+        self.assertEqual(float('inf'), Base(float('inf')).id)
+
+    def test_NaN_id(self):
+        self.assertNotEqual(float('nan'), Base(float('nan')).id)
 
 
 if __name__ == '__main__':
