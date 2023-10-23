@@ -32,5 +32,6 @@ This class epresents a **rectangle** (inherits from `Base`)
 - **Class constructor** : `def __init__(self, width, height, x=0, y=0, id=None):`
 - **Public method** : `def area(self):` that returns the area of the `Rectangle` instance
 - **Public method** : `def display(self):` that prints in stdout the `Rectangle` instance with `#`
+  - improvement by taking care of `x` & `y`
 - Overriding the `__str__` method to print a `Rectangle` instance in the format `[Rectangle] (<id>) <x>/<y>`
-- 
+-
