@@ -8,10 +8,16 @@ import sys
 
 from tests.test_models.test_base import TestBase
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(TestBase):
     """ Testing Rectangle class """
+
+    # INHERITANCE
+    def test_rectangle_inherits_from_base(self):
+        """ Testing inheritance """
+        self.assertTrue(issubclass(Rectangle, Base))
 
     # ATTRIBUTES
     def test_valid_attributes(self):
