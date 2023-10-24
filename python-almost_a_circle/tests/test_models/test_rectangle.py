@@ -86,6 +86,20 @@ class TestRectangle(TestBase):
         with self.assertRaises(ValueError):
             Rectangle(10, 0, 0, 0)
 
+    def test_area_string(self):
+        """ Testing string area """
+        with self.assertRaises(TypeError):
+            Rectangle("hello", 20, 0, 0)
+        with self.assertRaises(TypeError):
+            Rectangle(10, "hello", 0, 0)
+
+    def test_area_negative(self):
+        """ Testing negative area """
+        with self.assertRaises(ValueError):
+            Rectangle(-10, 20, 0, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(10, -20, 0, 0)
+
     # DISPLAY
     def test_display(self):
         """ Testing display """
