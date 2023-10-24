@@ -249,8 +249,13 @@ class TestRectangle(TestBase):
     def test_to_dictionary_string_id(self):
         """ Testing to dictionary with string id """
         rect = Rectangle(3, 2, 2, 1, "hello")
-        expected_dict = {'id': "hello", 'width': 3,
-                         'height': 2, 'x': 2, 'y': 1}
+        expected_dict = {
+            'id': "hello",
+            'width': 3,
+            'height': 2,
+            'x': 2,
+            'y': 1
+        }
         self.assertEqual(rect.to_dictionary(), expected_dict)
 
     def test_to_dictionary_empty_id(self):
