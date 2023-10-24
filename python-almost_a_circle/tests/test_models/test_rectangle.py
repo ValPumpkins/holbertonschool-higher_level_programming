@@ -227,6 +227,38 @@ class TestRectangle(TestBase):
         self.assertEqual(rect.x, 2)
         self.assertEqual(rect.y, 1)
 
+    # DICTIONARY
+    def test_to_dictionary(self):
+        """ Testing to dictionary """
+        rect = Rectangle(3, 2, 2, 1, 42)
+        expected_dict = {'id': 42, 'width': 3, 'height': 2, 'x': 2, 'y': 1}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_to_dictionary_zero_coordinates(self):
+        """ Testing to dictionary with zero coordinates """
+        rect = Rectangle(3, 2, 0, 0, 42)
+        expected_dict = {'id': 42, 'width': 3, 'height': 2, 'x': 0, 'y': 0}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_to_dictionary_negative_id(self):
+        """ Testing to dictionary with negative id """
+        rect = Rectangle(3, 2, 2, 1, -42)
+        expected_dict = {'id': -42, 'width': 3, 'height': 2, 'x': 2, 'y': 1}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_to_dictionary_string_id(self):
+        """ Testing to dictionary with string id """
+        rect = Rectangle(3, 2, 2, 1, "hello")
+        expected_dict = {'id': "hello", 'width': 3,
+                         'height': 2, 'x': 2, 'y': 1}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_to_dictionary_empty_id(self):
+        """ Testing to dictionary with empty ID """
+        rect = Rectangle(3, 2, 2, 1, "")
+        expected_dict = {'id': "", 'width': 3, 'height': 2, 'x': 2, 'y': 1}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
 
 if __name__ == '__main__':
     unittest.main()
