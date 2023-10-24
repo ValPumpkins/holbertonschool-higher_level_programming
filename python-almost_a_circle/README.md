@@ -41,9 +41,18 @@ This class represents a **rectangle** (inherits from `Base`)
     - 4th argument should be the `x` attribute
     - 5th argument should be the `y` attribute
   - `**kwargs` can be thought of as a double pointer to a dictionary : *key/value* and must be skipped if `*args` exists and is not empty
+- **Public method** : `def to_dictionary(self):` that returns the dictionary representation of a `Rectangle`
+    - Must contain :
+      -  `id`
+      -  `width`
+      -  `height`
+      -  `x`
+      -  `y`
 
 ## 🟪 Square
 This class represents a **square** (inherits from `Rectangle`)
 - **Class constructor** : `def __init__(self, size, x=0, y=0, id=None):`
 - **`__str__` method** should return `[Square] (<id>) <x>/<y> - <size>` - in our case, `width` or `height`
+- **Public** getter and setter `size`
+- **Public method** : `def update(self, *args, **kwargs)`
 
