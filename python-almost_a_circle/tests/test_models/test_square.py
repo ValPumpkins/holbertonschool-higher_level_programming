@@ -121,6 +121,18 @@ class TestSquare(TestRectangle):
 
     # DICTONARY
 
+    def test_square_to_dictionary(self):
+        """ Testing to_dictionary method of Square """
+        square = Square(5, 2, 3, 1)
+        dictionary = square.to_dictionary()
+        expected_dict = {
+            "id": 1,
+            "size": 5,
+            "x": 2,
+            "y": 3
+        }
+        self.assertEqual(dictionary, expected_dict)
+
     def test_square_dictionary(self):
         """ Testing square dictionary  """
         square = Square(3, 2, 4, 5)
@@ -143,8 +155,13 @@ class TestSquare(TestRectangle):
     def test_square_to_dictionary_string_id(self):
         """ Testing to dictionary with string id """
         rect = Rectangle(3, 2, 2, 1, "hello")
-        expected_dict = {'id': "hello", 'width': 3,
-                         'height': 2, 'x': 2, 'y': 1}
+        expected_dict = {
+            'id': "hello",
+            'width': 3,
+            'height': 2,
+            'x': 2,
+            'y': 1
+        }
         self.assertEqual(rect.to_dictionary(), expected_dict)
 
     def test_square_to_dictionary_empty_id(self):
