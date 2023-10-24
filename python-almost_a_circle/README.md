@@ -22,9 +22,10 @@ and we will also learn about :
 ## 🟧 Base
 
 This class will be the **“base”** of all other classes in this project
-- Private class attribute : `__nb_objects = 0`
-- Public instance attribute : `id`
-- Class constructor : `def __init__(self, id=None):`
+- **Private class attribute** : `__nb_objects = 0`
+- **Public instance attribute** : `id`
+- **Class constructor** : `def __init__(self, id=None):`
+- **Static method** : `def to_json_string(list_dictionaries:`, that returns the JSON string representation of `list_dictionaries`
 
 ## 🟩 Rectangle
 This class represents a **rectangle** (inherits from `Base`)
