@@ -200,6 +200,25 @@ class TestBase(unittest.TestCase):
             data = file.read()
             self.assertEqual(data, "[]")
 
+    # FROM JSON STRING
+    def test_from_json_string_valid(self):
+        json_string = '[{"id": 1, "name": "John"}, {"id": 2, "name": "Alice"}]'
+        result = Base.from_json_string(json_string)
+        self.assertIsInstance(result, list)
+        self.assertEqual(result, [{"id": 1, "name": "John"}, {
+                         "id": 2, "name": "Alice"}])
+
+    def test_from_json_empty(self):
+        """ Test from json with empty string """
+        json_string = ''
+        result = Base.from_json_string(json_string)
+        self.assertEqual(result, [])
+
+    def test_from_json_none(self):
+        """ Test from json with None """
+        result = Base.from_json_string(None)
+        self.assertEqual(result, [])
+
 
 if __name__ == '__main__':
     unittest.main()
