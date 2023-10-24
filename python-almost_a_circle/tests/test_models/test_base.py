@@ -64,6 +64,75 @@ class TestBase(unittest.TestCase):
     def test_NaN_id(self):
         self.assertNotEqual(float('nan'), Base(float('nan')).id)
 
+    # JSON
+    def test_empty_list(self):
+        """ Testing with empyt list """
+        result = Base.to_json_string([])
+        self.assertEqual(result, "[]")
+
+    def test_non_empty_list(self):
+        """ Testing with non-empty list"""
+        list_of_dicts = [{"key1": "value1", "key2": "value2"}, {"key3": "value3"}]
+        result = Base.to_json_string(list_of_dicts)
+        expected_json = '[{"key1": "value1", "key2": "value2"}, {"key3": "value3"}]'
+        self.assertEqual(result, expected_json)
+
+    def test_none_list(self):
+        """ Test with None list """
+        result = Base.to_json_string(None)
+        self.assertEqual(result, "[]")
+
+    def test_empty_dict(self):
+        """ Test with empty dict """
+        result = Base.to_json_string({})
+        self.assertEqual(result, "[]")
+
+    def test_non_empty_dict(self):
+        """ Test with non-empty dict """
+        dict_of_dicts = {"key1": "value1", "key2": "value2"}
+        result = Base.to_json_string(dict_of_dicts)
+        expected_json = '{"key1": "value1", "key2": "value2"}'
+        self.assertEqual(result, expected_json)
+
+    def test_empty_string(self):
+        """ Test with empty string """
+        result = Base.to_json_string("")
+        self.assertEqual(result, "[]")
+
+    def test_non_empty_string(self):
+        """ Test with non-empty string """
+        string_of_dicts = "key1:value1,key2:value2"
+        result = Base.to_json_string(string_of_dicts)
+        expected_json = '"key1:value1,key2:value2"'
+        self.assertEqual(result, expected_json)
+
+    def test_list_of_dicts(self):
+        """ Test with non-empty list of dicts """
+        list_of_dicts = [{"key1": "value1", "key2": "value2"}, {"key3": "value3"}]
+        result = Base.to_json_string(list_of_dicts)
+        expected_json = '[{"key1": "value1", "key2": "value2"}, {"key3": "value3"}]'
+        self.assertEqual(result, expected_json)
+
+    def test_list_of_strings(self):
+        """ Test with list of strings """
+        list_of_strings = ["key1:value1", "key2:value2"]
+        result = Base.to_json_string(list_of_strings)
+        expected_json = '["key1:value1", "key2:value2"]'
+        self.assertEqual(result, expected_json)
+
+    def test_list_of_ints(self):
+        """ Test with non-empty list of ints """
+        list_of_ints = [1, 2, 3]
+        result = Base.to_json_string(list_of_ints)
+        expected_json = '[1, 2, 3]'
+        self.assertEqual(result, expected_json)
+
+    def test_list_of_floats(self):
+        """ Test with non-empty list of floats """
+        list_of_floats = [1.1, 2.2, 3.3]
+        result = Base.to_json_string(list_of_floats)
+        expected_json = '[1.1, 2.2, 3.3]'
+        self.assertEqual(result, expected_json)
 
 if __name__ == '__main__':
     unittest.main()
