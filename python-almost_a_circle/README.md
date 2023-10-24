@@ -26,6 +26,7 @@ This class will be the **“base”** of all other classes in this project
 - **Public instance attribute** : `id`
 - **Class constructor** : `def __init__(self, id=None):`
 - **Static method** : `def to_json_string(list_dictionaries:`, that returns the JSON string representation of `list_dictionaries`
+- **Class method** : `def save_to_file(cls, list_objs):` that writes the JSON string representation of `list_objs` to a file
 
 ## 🟩 Rectangle
 This class represents a **rectangle** (inherits from `Base`)
