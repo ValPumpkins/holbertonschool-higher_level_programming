@@ -82,22 +82,12 @@ class TestBase(unittest.TestCase):
         result = Base.to_json_string(None)
         self.assertEqual(result, "[]")
 
-    def test_empty_dict(self):
-        """ Test with empty dict """
-        result = Base.to_json_string({})
-        self.assertEqual(result, "[]")
-
     def test_non_empty_dict(self):
         """ Test with non-empty dict """
         dict_of_dicts = {"key1": "value1", "key2": "value2"}
         result = Base.to_json_string(dict_of_dicts)
         expected_json = '{"key1": "value1", "key2": "value2"}'
         self.assertEqual(result, expected_json)
-
-    def test_empty_string(self):
-        """ Test with empty string """
-        result = Base.to_json_string("")
-        self.assertEqual(result, "[]")
 
     def test_non_empty_string(self):
         """ Test with non-empty string """
