@@ -219,6 +219,109 @@ class TestBase(unittest.TestCase):
         result = Base.from_json_string(None)
         self.assertEqual(result, [])
 
+    # CREATE
+    def test_create_rectangle(self):
+        """ Test create rectangle  """
+        rectangle_dict = {'id': 1, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
+        rectangle_instance = Rectangle.create(**rectangle_dict)
+        self.assertIsInstance(rectangle_instance, Rectangle)
+
+    def test_create_square(self):
+        """ Test create square  """
+        square_dict = {'id': 1, 'size': 5, 'x': 2, 'y': 3}
+        square_instance = Square.create(**square_dict)
+        self.assertIsInstance(square_instance, Square)
+
+    def test_create_rectangle_with_id(self):
+        """ Test create rectangle with id """
+        rectangle_dict = {'id': 1, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
+        rectangle_instance = Rectangle.create(**rectangle_dict)
+        self.assertEqual(rectangle_instance.id, 1)
+
+    def test_create_square_with_id(self):
+        """ Test create square with id """
+        square_dict = {'id': 1, 'size': 5, 'x': 2, 'y': 3}
+        square_instance = Square.create(**square_dict)
+        self.assertEqual(square_instance.id, 1)
+
+    def test_create_rectangle_with_x(self):
+        """ Test create rectangle with x """
+        rectangle_dict = {'id': 1, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
+        rectangle_instance = Rectangle.create(**rectangle_dict)
+        self.assertEqual(rectangle_instance.x, 2)
+
+    def test_create_square_with_x(self):
+        """ Test create square with x """
+        square_dict = {'id': 1, 'size': 5, 'x': 2, 'y': 3}
+        square_instance = Square.create(**square_dict)
+        self.assertEqual(square_instance.x, 2)
+
+    def test_create_rectangle_with_y(self):
+        """ Test create rectangle with y """
+        rectangle_dict = {'id': 1, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
+        rectangle_instance = Rectangle.create(**rectangle_dict)
+        self.assertEqual(rectangle_instance.y, 3)
+
+    def test_create_square_with_y(self):
+        """ Test create square with y """
+        square_dict = {'id': 1, 'size': 5, 'x': 2, 'y': 3}
+        square_instance = Square.create(**square_dict)
+        self.assertEqual(square_instance.y, 3)
+
+    def test_create_rectangle_with_width(self):
+        """ Test create rectangle with width """
+        rectangle_dict = {'id': 1, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
+        rectangle_instance = Rectangle.create(**rectangle_dict)
+        self.assertEqual(rectangle_instance.width, 5)
+
+    def test_create_square_with_width(self):
+        """ Test create square with width """
+        square_dict = {'id': 1, 'size': 5, 'x': 2, 'y': 3}
+        square_instance = Square.create(**square_dict)
+        self.assertEqual(square_instance.size, 5)
+
+    def test_create_rectangle_with_height(self):
+        """ Test create rectangle with height """
+        rectangle_dict = {'id': 1, 'width': 5, 'height': 10, 'x': 2, 'y': 3}
+        rectangle_instance = Rectangle.create(**rectangle_dict)
+        self.assertEqual(rectangle_instance.height, 10)
+
+    def test_create_square_with_height(self):
+        """ Test create square with height """
+        square_dict = {'id': 1, 'size': 5, 'x': 2, 'y': 3}
+        square_instance = Square.create(**square_dict)
+        self.assertEqual(square_instance.size, 5)
+        self.assertEqual(square_instance.x, 2)
+        self.assertEqual(square_instance.y, 3)
+        self.assertEqual(square_instance.id, 1)
+
+    # DICTIONARY
+    def test_rectangle_to_dictionary(self):
+        """ Testing to_dictionary method of Rectangle """
+        rectangle = Rectangle(5, 2, 3, 0, id=1)
+        dictionary = rectangle.to_dictionary()
+        expected_dict = {
+            "id": 1,
+            "width": 5,
+            "height": 2,
+            "x": 3,
+            "y": 0
+        }
+        self.assertEqual(dictionary, expected_dict)
+        self.assertIsInstance(dictionary, dict)
+
+    def test_square_to_dictionary(self):
+        """ Testing to_dictionary method of Square """
+        square = Square(5, 2, 3, 1)
+        dictionary = square.to_dictionary()
+        expected_dict = {
+            "id": 1,
+            "size": 5,
+            "x": 2,
+            "y": 3
+        }
+        self.assertEqual(dictionary, expected_dict)
+
 
 if __name__ == '__main__':
     unittest.main()
