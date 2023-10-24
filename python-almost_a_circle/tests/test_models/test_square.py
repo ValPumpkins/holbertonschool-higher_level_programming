@@ -119,6 +119,40 @@ class TestSquare(TestRectangle):
         self.assertEqual(square.x, 2)
         self.assertEqual(square.y, 4)
 
+    # DICTONARY
 
-if __name__ == "__main__":
+    def test_square_dictionary(self):
+        """ Testing square dictionary  """
+        square = Square(3, 2, 4, 5)
+        square_dictionary = square.to_dictionary()
+        expected_dictionary = {'id': 5, 'size': 3, 'x': 2, 'y': 4}
+        self.assertEqual(square_dictionary, expected_dictionary)
+
+    def test_square_zero_coordinates(self):
+        """ Testing to dictionary with zero coordinates """
+        rect = Rectangle(3, 2, 0, 0, 42)
+        expected_dict = {'id': 42, 'width': 3, 'height': 2, 'x': 0, 'y': 0}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_sqaure_to_dictionary_negative_id(self):
+        """ Testing to dictionary with negative id """
+        rect = Rectangle(3, 2, 2, 1, -42)
+        expected_dict = {'id': -42, 'width': 3, 'height': 2, 'x': 2, 'y': 1}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_square_to_dictionary_string_id(self):
+        """ Testing to dictionary with string id """
+        rect = Rectangle(3, 2, 2, 1, "hello")
+        expected_dict = {'id': "hello", 'width': 3,
+                         'height': 2, 'x': 2, 'y': 1}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_square_to_dictionary_empty_id(self):
+        """ Testing to dictionary with empty ID """
+        rect = Rectangle(3, 2, 2, 1, "")
+        expected_dict = {'id': "", 'width': 3, 'height': 2, 'x': 2, 'y': 1}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+
+if __name__ == '__main__':
     unittest.main()
