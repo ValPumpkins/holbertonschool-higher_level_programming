@@ -10,6 +10,7 @@ python-input_output/*.json
 .DS_Store
 findIndex.py
 testmd.md
+python-almost_a_circle/*.json
 
 # pip file
 python-import_modules/Pipfile
@@ -28,3 +29,4 @@ python-input_output/__pycache__/*.pyc
 python-almost_a_circle/models/__pycache__/*.pyc
 python-almost_a_circle/tests/__pycache__/*.pyc
 python-almost_a_circle/tests/test_models/__pycache__/*.pyc
+
