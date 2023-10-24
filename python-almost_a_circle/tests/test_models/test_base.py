@@ -4,6 +4,8 @@
 import unittest
 
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase(unittest.TestCase):
@@ -72,9 +74,10 @@ class TestBase(unittest.TestCase):
 
     def test_non_empty_list(self):
         """ Testing with non-empty list"""
-        list_of_dicts = [{"key1": "value1", "key2": "value2"}, {"key3": "value3"}]
+        list_of_dicts = [
+            {"key1": "val1", "key2": "val2"}, {"key3": "val3"}]
         result = Base.to_json_string(list_of_dicts)
-        expected_json = '[{"key1": "value1", "key2": "value2"}, {"key3": "value3"}]'
+        expected_json = '[{"key1": "val1", "key2": "val2"}, {"key3": "val3"}]'
         self.assertEqual(result, expected_json)
 
     def test_none_list(self):
@@ -98,9 +101,10 @@ class TestBase(unittest.TestCase):
 
     def test_list_of_dicts(self):
         """ Test with non-empty list of dicts """
-        list_of_dicts = [{"key1": "value1", "key2": "value2"}, {"key3": "value3"}]
+        list_of_dicts = [
+            {"key1": "val1", "key2": "val2"}, {"key3": "val3"}]
         result = Base.to_json_string(list_of_dicts)
-        expected_json = '[{"key1": "value1", "key2": "value2"}, {"key3": "value3"}]'
+        expected_json = '[{"key1": "val1", "key2": "val2"}, {"key3": "val3"}]'
         self.assertEqual(result, expected_json)
 
     def test_list_of_strings(self):
@@ -123,6 +127,79 @@ class TestBase(unittest.TestCase):
         result = Base.to_json_string(list_of_floats)
         expected_json = '[1.1, 2.2, 3.3]'
         self.assertEqual(result, expected_json)
+
+    # SAVE TO FILE
+    def test_save_rectangle_to_file(self):
+        """ Test save rectangle to file """
+        rect1 = Rectangle(4, 3)
+        rect2 = Rectangle(5, 2)
+        rect3 = Rectangle(7, 1)
+        rectangles = [rect1, rect2, rect3]
+        Rectangle.save_to_file(rectangles)
+        with open("Rectangle.json", "r") as file:
+            data = file.read()
+            self.assertTrue(data)
+
+    def test_save_square_to_file(self):
+        """ Test save square to file """
+        square1 = Square(4)
+        square2 = Square(5)
+        square3 = Square(7)
+        squares = [square1, square2, square3]
+        Square.save_to_file(squares)
+        with open("Square.json", "r") as file:
+            data = file.read()
+            self.assertTrue(data)
+
+    def test_save_to_file_none(self):
+        """ Test save to file with None """
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            data = file.read()
+            self.assertEqual(data, "[]")
+
+    def test_save_to_file_empty(self):
+        """ Test save to file with empty list """
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            data = file.read()
+            self.assertEqual(data, "[]")
+
+    def test_save_to_file_empty_dict(self):
+        """ Test save to file with empty dict """
+        Square.save_to_file({})
+        with open("Square.json", "r") as file:
+            data = file.read()
+            self.assertEqual(data, "[]")
+
+    def test_save_to_file_empty_string(self):
+        """ Test save to file with empty string """
+        Square.save_to_file("")
+        with open("Square.json", "r") as file:
+            data = file.read()
+            self.assertEqual(data, "[]")
+
+    def test_save_to_file_empty_tuple(self):
+        """ Test save to file with empty tuple """
+        Square.save_to_file(())
+        with open("Square.json", "r") as file:
+            data = file.read()
+            self.assertEqual(data, "[]")
+
+    def test_save_to_file_empty_set(self):
+        """ Test save to file with empty set """
+        Square.save_to_file(set())
+        with open("Square.json", "r") as file:
+            data = file.read()
+            self.assertEqual(data, "[]")
+
+    def test_save_to_file_empty_list(self):
+        """ Test save to file with empty list """
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            data = file.read()
+            self.assertEqual(data, "[]")
+
 
 if __name__ == '__main__':
     unittest.main()
