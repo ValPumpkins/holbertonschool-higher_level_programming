@@ -110,7 +110,7 @@ class TestSquare(TestRectangle):
         self.assertEqual(square.x, 1)
         self.assertEqual(square.y, 2)
 
-    def test_square_update_unknown_attributes(self):
+    def test_update_unknown_attributes(self):
         """ Testing update with unknown attributes """
         square = Square(3, 2, 4, 5)
         square.update(1, size=4, x=0)
