@@ -55,4 +55,10 @@ This class represents a **square** (inherits from `Rectangle`)
 - **`__str__` method** should return `[Square] (<id>) <x>/<y> - <size>` - in our case, `width` or `height`
 - **Public** getter and setter `size`
 - **Public method** : `def update(self, *args, **kwargs)`
+- **Public method** : `def to_dictionary(self):` that returns the dictionary representation of a `Square`
+    - Must contain :
+      -  `id`
+      -  `size`
+      -  `x`
+      -  `y`
 
