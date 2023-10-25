@@ -19,7 +19,7 @@ and we will also learn about :
 - JSON
 
 # 🟥 CLASSES
-## 🟧 Base
+## 🟧 class Base
 
 This class will be the **“base”** of all other classes in this project
 - **Private class attribute** : `__nb_objects = 0`
@@ -29,8 +29,10 @@ This class will be the **“base”** of all other classes in this project
 - **Class method** : `def save_to_file(cls, list_objs):` that writes the JSON string representation of `list_objs` to a file
 - **Static method** : `def from_json_string(json_string):` that returns the list of the JSON string representation `json_string`
 - **Class method** : `def create(cls, **dictionary):` that returns an instance with all attributes already set
+- **Class method** : `def load_from_file(cls):` that returns a list of instances
+- **Static method** : `def draw(list_rectangles, list_squares):` that opens a window and draws all the `Rectangles` and `Squares`
 
-## 🟩 Rectangle
+## 🟩 class Rectangle
 This class represents a **rectangle** (inherits from `Base`)
 - **Private instance attributes** : `__width`, `__height`, `__x` & `__y`
 - **Class constructor** : `def __init__(self, width, height, x=0, y=0, id=None):`
@@ -53,7 +55,7 @@ This class represents a **rectangle** (inherits from `Base`)
       -  `x`
       -  `y`
 
-## 🟪 Square
+## 🟪 class Square
 This class represents a **square** (inherits from `Rectangle`)
 - **Class constructor** : `def __init__(self, size, x=0, y=0, id=None):`
 - **`__str__` method** should return `[Square] (<id>) <x>/<y> - <size>` - in our case, `width` or `height`
