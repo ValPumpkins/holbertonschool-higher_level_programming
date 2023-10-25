@@ -3,6 +3,7 @@
 
 import json
 import os
+import turtle
 
 
 class Base:
@@ -91,3 +92,50 @@ class Base:
             json_string = file.read()
             instance_list = cls.from_json_string(json_string)
             return [cls.create(**dictionnary) for dictionnary in instance_list]
+
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        draw = turtle.Turtle()
+        draw.pensize(2)
+        draw.shape("turtle")
+        draw.shapesize(3, 3, 3)
+        draw.width(3)
+        draw.pencolor("#90ee90")
+        draw.screen.bgcolor("#9ad7db")
+        draw.screen.title("Drawing with a turtle because why not")
+
+        draw.penup()
+        draw.goto(-100, 200)
+
+        for rectangles in list_rectangles:
+            draw.fillcolor("#91a3b0")
+            Base.setup_draw(draw, rectangles)
+            for _ in range(2):
+                draw.forward(rectangles.width)
+                draw.left(90)
+                draw.forward(rectangles.height)
+                draw.left(90)
+            draw.end_fill()
+            draw.penup()
+
+        for squares in list_squares:
+            draw.fillcolor("#fef580")
+            Base.setup_draw(draw, squares)
+            for _ in range(4):
+                draw.backward(squares.width)
+                draw.right(90)
+            draw.end_fill()
+            draw.penup()
+
+        draw.color("#90ee90")
+        draw.goto(-200, 100)
+        draw.screen.exitonclick()
+
+
+    @staticmethod
+    def setup_draw(instance, obj):
+        instance.goto(instance.xcor(), instance.ycor() - (obj.height + 10))
+        instance.penup()
+        instance.pendown()
+        instance.begin_fill()
