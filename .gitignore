@@ -11,7 +11,7 @@ python-input_output/*.json
 findIndex.py
 testmd.md
 python-almost_a_circle/*.json
-python-almost_a_circle/draw_test.py
+draw_test.py
 
 # pip file
 python-import_modules/Pipfile
@@ -31,4 +31,6 @@ python-almost_a_circle/models/__pycache__/*.pyc
 python-almost_a_circle/tests/__pycache__/*.pyc
 python-almost_a_circle/tests/test_models/__pycache__/*.pyc
 
-
+# Vagrant
+Vagrantfile
+.vagrant/rgloader/loader.rb
