@@ -2,6 +2,7 @@
 """ Defines a base model class """
 
 import json
+import os
 
 
 class Base:
@@ -63,7 +64,12 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """ Returns a list of instances """
+        """ Returns a list of instances
+        Args:
+            dictionary (dict): key/value pairs of attributes
+        Returns:
+            instance of the created object
+        """
         if cls.__name__ == "Rectangle":
             fake_instance = cls(10, 10)
         elif cls.__name__ == "Square":
@@ -72,3 +78,16 @@ class Base:
         fake_instance.update(**dictionary)
 
         return fake_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """ Returns a list of instances """
+        filename = f"{cls.__name__}.json"
+
+        if os.path.exists(filename) is False:
+            return []
+
+        with open(filename, 'r') as file:
+            json_string = file.read()
+            instance_list = cls.from_json_string(json_string)
+            return [cls.create(**dictionnary) for dictionnary in instance_list]
