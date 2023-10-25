@@ -2,6 +2,7 @@
 """ Unittest for Base class """
 
 import unittest
+import os
 
 from models.base import Base
 from models.rectangle import Rectangle
@@ -321,6 +322,38 @@ class TestBase(unittest.TestCase):
             "y": 3
         }
         self.assertEqual(dictionary, expected_dict)
+
+    # LOAD FROM FILE
+    def test_load_from_file_no_file(self):
+        output = Square.load_from_file()
+        self.assertEqual([], output)
+
+    def test_load_from_file_empty_file(self):
+        with open("Square.json", "w") as file:
+            file.write("")
+        output = Square.load_from_file()
+        self.assertEqual([], output)
+        os.remove("Square.json")
+        file.close()
+        self.assertFalse(os.path.exists("Square.json"))
+
+    def test_load_rectangle(self):
+        """ Test load rectangle """
+        rectangle1 = Rectangle(2, 4)
+        rectangle2 = Rectangle(4, 8)
+        Rectangle.save_to_file([rectangle1, rectangle2])
+        rectangle_output = Rectangle.load_from_file()
+        self.assertEqual(str(rectangle1), str(rectangle_output[0]))
+        self.assertEqual(str(rectangle2), str(rectangle_output[1]))
+
+    def test_load_square(self):
+        """ Test load square """
+        square1 = Square(2)
+        square2 = Square(4)
+        Square.save_to_file([square1, square2])
+        square_output = Square.load_from_file()
+        self.assertEqual(str(square1), str(square_output[0]))
+        self.assertEqual(str(square2), str(square_output[1]))
 
 
 if __name__ == '__main__':
