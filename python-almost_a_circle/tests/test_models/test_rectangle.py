@@ -14,10 +14,46 @@ from models.base import Base
 class TestRectangle(TestBase):
     """ Testing Rectangle class """
 
+    # SETUP + DEL
+    def setUp(self):
+        """ Init instance w/ width + height """
+        self.rect = Rectangle(10, 20)
+
+    def tearDown(self):
+        """ Delete instance """
+        del self.rect
+
     # INHERITANCE
     def test_rectangle_inherits_from_base(self):
         """ Testing inheritance """
         self.assertTrue(issubclass(Rectangle, Base))
+
+    # Each attrs
+    def test_width(self):
+        """Testing the Rectangle width getter"""
+        self.assertEqual(10, self.rect.width)
+
+    def test_height(self):
+        """Testing the Rectangle height getter"""
+        self.assertEqual(20, self.rect.height)
+
+    def test_x(self):
+        """Testing Rectangle x getter and setter"""
+        self.rect.x = 54
+        self.assertEqual(54, self.rect.x)
+        self.assertEqual(0, self.rect.y)
+
+    def test_y(self):
+        """Testing Rectangle y getter and setter"""
+        self.rect.y = 45
+        self.assertEqual(45, self.rect.y)
+        self.assertEqual(0, self.rect.x)
+
+    def test_rectangle_id(self):
+        """Test the id for Rectangle"""
+        rect = Rectangle(1, 3, 0, 0, 199)
+        self.assertEqual(199, rect.id)
+
 
     # ATTRIBUTES
     def test_valid_attributes(self):
@@ -38,6 +74,14 @@ class TestRectangle(TestBase):
             Rectangle(None, 20, 5, 5)
         with self.assertRaises(TypeError):
             Rectangle("hello", 20, 5, 5)
+        with self.assertRaises(TypeError):
+            Rectangle(True, 5)
+        with self.assertRaises(TypeError):
+            Rectangle([10, 6], 5)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 5)
+        with self.assertRaises(TypeError):
+            Rectangle(3.14, 5)
 
     def test_invalid_height(self):
         """ Testing invalid height """
@@ -49,6 +93,14 @@ class TestRectangle(TestBase):
             Rectangle(10, None, 5, 5)
         with self.assertRaises(TypeError):
             Rectangle(10, "hello", 5, 5)
+        with self.assertRaises(TypeError):
+            Rectangle(5, False)
+        with self.assertRaises(TypeError):
+            Rectangle(5, [10, 6])
+        with self.assertRaises(ValueError):
+            Rectangle(8, 0)
+        with self.assertRaises(TypeError):
+            Rectangle(5, 3.14)
 
     def test_invalid_x(self):
         """ Testing invalid x """
@@ -58,6 +110,12 @@ class TestRectangle(TestBase):
             Rectangle(10, 20, None, 5)
         with self.assertRaises(TypeError):
             Rectangle(10, 20, "hello", 5)
+        with self.assertRaises(TypeError):
+            Rectangle(1, 5, True)
+        with self.assertRaises(TypeError):
+            Rectangle(1, 5, [10, 6])
+        with self.assertRaises(TypeError):
+            Rectangle(5, 8, 3.14)
 
     def test_invalid_y(self):
         """ Testing invalid y """
@@ -67,6 +125,22 @@ class TestRectangle(TestBase):
             Rectangle(10, 20, 5, None)
         with self.assertRaises(TypeError):
             Rectangle(10, 20, 5, "hello")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 5, 7, True)
+        with self.assertRaises(TypeError):
+            Rectangle(1, 5, 7, [10, 6])
+        with self.assertRaises(TypeError):
+            Rectangle(5, 5, 8, 3.14)
+
+    def test_missing_height(self):
+        """Expecting a type error because height and width are missing"""
+        with self.assertRaises(TypeError):
+            Rectangle()
+
+    def test_missing_width(self):
+        """Expecting an error because width is missing"""
+        with self.assertRaises(TypeError):
+            Rectangle(1)
 
     # AREA
     def test_area(self):
@@ -99,6 +173,12 @@ class TestRectangle(TestBase):
             Rectangle(-10, 20, 0, 0)
         with self.assertRaises(ValueError):
             Rectangle(10, -20, 0, 0)
+
+    def test_area(self):
+        """Testing the area of the rectangle"""
+        self.assertEqual(self.rect.area(), 2 * 100)
+        rect = Rectangle(3, 9, 8, 8, 2)
+        self.assertEqual(rect.area(), 3 * 9)
 
     # DISPLAY
     def test_display(self):
@@ -160,6 +240,10 @@ class TestRectangle(TestBase):
         expected_str = "[Rectangle] (-1) 2/2 - 2/2"
         self.assertEqual(str(rect), expected_str)
 
+    def test_str_overload(self):
+        rect = Rectangle(5, 10, 8, 7, 88)
+        self.assertEqual(rect.__str__(), "[Rectangle] (88) 8/7 - 5/10")
+
     # UPDATE
     def test_update_with_args(self):
         """ Testing update with args """
@@ -193,12 +277,12 @@ class TestRectangle(TestBase):
     def test_update_kwargs_only(self):
         """ Testing update with kwargs only """
         rect = Rectangle(3, 2, 2, 1, 42)
-        rect.update(width=4, height=3, id=1)
+        rect.update(y= 8, width=4, x=5, height=3, id=1)
         self.assertEqual(rect.id, 1)
         self.assertEqual(rect.width, 4)
         self.assertEqual(rect.height, 3)
-        self.assertEqual(rect.x, 2)
-        self.assertEqual(rect.y, 1)
+        self.assertEqual(rect.x, 5)
+        self.assertEqual(rect.y, 8)
 
     def test_update_args_and_kwargs_combined1(self):
         rect = Rectangle(3, 2, 2, 1, 42)
@@ -233,6 +317,11 @@ class TestRectangle(TestBase):
         rect = Rectangle(3, 2, 2, 1, 42)
         expected_dict = {'id': 42, 'width': 3, 'height': 2, 'x': 2, 'y': 1}
         self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_to_dict(self):
+        """Testing the type that is returned from the to_dictionary method"""
+        r1 = Rectangle(5, 4)
+        self.assertEqual(type(r1.to_dictionary()), dict)
 
     def test_to_dictionary_zero_coordinates(self):
         """ Testing to dictionary with zero coordinates """
