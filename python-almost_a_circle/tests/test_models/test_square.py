@@ -184,6 +184,43 @@ class TestSquare(TestRectangle):
             content = file.read()
         self.assertEqual("[]", content)
 
+    # NEW
+    def test_square_with_width_and_height(self):
+        square = Square(1, 2)
+        self.assertIsInstance(square, Square)
+
+    def test_square_with_width_height_and_x(self):
+        square = Square(1, 2, 3)
+        self.assertIsInstance(square, Square)
+
+    def test_square_with_non_integer_width(self):
+        with self.assertRaises(TypeError):
+            square = Square("1")
+
+    def test_square_with_non_integer_height(self):
+        with self.assertRaises(TypeError):
+            square = Square(1, "2")
+
+    def test_square_with_non_integer_x(self):
+        with self.assertRaises(TypeError):
+            square = Square(1, 2, "3")
+
+    def test_square_with_negative_width(self):
+        with self.assertRaises(ValueError):
+            square = Square(-1)
+
+    def test_square_with_negative_height(self):
+        with self.assertRaises(ValueError):
+            square = Square(1, -2)
+
+    def test_square_with_negative_x(self):
+        with self.assertRaises(ValueError):
+            square = Square(1, 2, -3)
+
+    def test_square_with_width_and_height_zero(self):
+        with self.assertRaises(ValueError):
+            square = Square(0)
+
 
 if __name__ == '__main__':
     unittest.main()
