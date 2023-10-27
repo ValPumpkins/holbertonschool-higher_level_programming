@@ -3,6 +3,8 @@
 
 import unittest
 import os
+import json
+
 
 from models.base import Base
 from models.rectangle import Rectangle
@@ -128,6 +130,38 @@ class TestBase(unittest.TestCase):
         result = Base.to_json_string(list_of_floats)
         expected_json = '[1.1, 2.2, 3.3]'
         self.assertEqual(result, expected_json)
+
+    # JSON - (New)
+    def test_to_json_type(self):
+        """Testing the json string"""
+        sq = Square(1)
+        json_dict = sq.to_dictionary()
+        json_string = Base.to_json_string([json_dict])
+        self.assertEqual(type(json_string), str)
+
+    def test_to_json_value(self):
+        """Testing the json string"""
+        sq = Square(1, 0, 0, 609)
+        json_dict = sq.to_dictionary()
+        json_string = Base.to_json_string([json_dict])
+        self.assertEqual(
+            json.loads(json_string), [{"id": 609, "y": 0, "size": 1, "x": 0}]
+        )
+
+    def test_load_from_file_nonexistent_file(self):
+        instance = Base()
+        result = instance.load_from_file()
+        self.assertEqual(result, [])
+
+    def test_empty_json_string(self):
+        json_string = ""
+        result = Base.from_json_string(json_string)
+        self.assertEqual(result, [])
+
+    def test_empty_json_string_partial(self):
+        json_string = None
+        result = Base.from_json_string(json_string)
+        self.assertEqual(result, [])
 
     # SAVE TO FILE
     def test_save_rectangle_to_file(self):
