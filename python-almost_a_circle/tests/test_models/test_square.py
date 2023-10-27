@@ -2,6 +2,7 @@
 """ Unittest for Square class """
 
 import unittest
+import os
 
 from tests.test_models.test_rectangle import TestRectangle
 from models.rectangle import Rectangle
@@ -120,7 +121,6 @@ class TestSquare(TestRectangle):
         self.assertEqual(square.y, 4)
 
     # DICTONARY
-
     def test_square_to_dictionary(self):
         """ Testing to_dictionary method of Square """
         square = Square(5, 2, 3, 1)
@@ -170,6 +170,19 @@ class TestSquare(TestRectangle):
         expected_dict = {'id': "", 'width': 3, 'height': 2, 'x': 2, 'y': 1}
         self.assertEqual(rect.to_dictionary(), expected_dict)
 
+    # SAVE TO FILE
+    def test_saving_to_file_None(self):
+        """Testing saving a file into json format sending None"""
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        r1 = Square(5, 0, 0, 346)
+        Square.save_to_file(None)
+
+        with open("Square.json", "r") as file:
+            content = file.read()
+        self.assertEqual("[]", content)
 
 if __name__ == '__main__':
     unittest.main()
