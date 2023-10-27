@@ -93,7 +93,6 @@ class Base:
             instance_list = cls.from_json_string(json_string)
             return [cls.create(**dictionnary) for dictionnary in instance_list]
 
-
     @staticmethod
     def draw(list_rectangles, list_squares):
         draw = turtle.Turtle()
@@ -131,7 +130,6 @@ class Base:
         draw.color("#90ee90")
         draw.goto(-200, 100)
         draw.screen.exitonclick()
-
 
     @staticmethod
     def setup_draw(instance, obj):

@@ -175,7 +175,7 @@ class TestSquare(TestRectangle):
         """Testing saving a file into json format sending None"""
         try:
             os.remove("Square.json")
-        except:
+        except FileNotFoundError:
             pass
         r1 = Square(5, 0, 0, 346)
         Square.save_to_file(None)
@@ -183,6 +183,7 @@ class TestSquare(TestRectangle):
         with open("Square.json", "r") as file:
             content = file.read()
         self.assertEqual("[]", content)
+
 
 if __name__ == '__main__':
     unittest.main()

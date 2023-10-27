@@ -54,7 +54,6 @@ class TestRectangle(TestBase):
         rect = Rectangle(1, 3, 0, 0, 199)
         self.assertEqual(199, rect.id)
 
-
     # ATTRIBUTES
     def test_valid_attributes(self):
         """ Testing valid attributes """
@@ -277,7 +276,7 @@ class TestRectangle(TestBase):
     def test_update_kwargs_only(self):
         """ Testing update with kwargs only """
         rect = Rectangle(3, 2, 2, 1, 42)
-        rect.update(y= 8, width=4, x=5, height=3, id=1)
+        rect.update(y=8, width=4, x=5, height=3, id=1)
         self.assertEqual(rect.id, 1)
         self.assertEqual(rect.width, 4)
         self.assertEqual(rect.height, 3)
