@@ -221,6 +221,17 @@ class TestSquare(TestRectangle):
         with self.assertRaises(ValueError):
             square = Square(0)
 
+    def test_square_with_size_and_x(self):
+        square = Square(1, 2)
+        self.assertEqual(square.size, 1)
+        self.assertEqual(square.x, 2)
+
+    def test_square_with_size_x_and_y(self):
+        square = Square(1, 2, 3)
+        self.assertEqual(square.size, 1)
+        self.assertEqual(square.x, 2)
+        self.assertEqual(square.y, 3)
+
 
 if __name__ == '__main__':
     unittest.main()
