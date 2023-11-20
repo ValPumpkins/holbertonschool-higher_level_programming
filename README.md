@@ -18,5 +18,6 @@
 <li>Python - Inheritance</li>
 <li>Python - Input/Output</li>
 <li>Python - Almost a circle</li>
+<li>SQL - Introduction</li>
 
 </ol>
