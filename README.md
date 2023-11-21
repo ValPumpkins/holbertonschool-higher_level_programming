@@ -19,5 +19,6 @@
 <li>Python - Input/Output</li>
 <li>Python - Almost a circle</li>
 <li>SQL - Introduction</li>
+<li>SQL - More queries</li>
 
 </ol>
