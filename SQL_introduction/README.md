@@ -1,7 +1,7 @@
 # <p align="center">💿 SQL - Introduction</p>
 ## <p align="center">🎓 Holberton School Program - Lille</p>
 
-![MySQL-logo](https://i.imgur.com/dTN8J3q.jpg)
+![SQL](https://i.imgur.com/LAx6q0L.jpg)
 
 ### Learning Objectives
 
