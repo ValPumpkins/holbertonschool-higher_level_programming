@@ -20,5 +20,5 @@
 <li>Python - Almost a circle</li>
 <li>SQL - Introduction</li>
 <li>SQL - More queries</li>
-
+<li>Python - Object-relational mapping</li>
 </ol>
