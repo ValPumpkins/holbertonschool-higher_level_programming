@@ -21,4 +21,5 @@
 <li>SQL - Introduction</li>
 <li>SQL - More queries</li>
 <li>Python - Object-relational mapping</li>
+<li>Javascript - DOM manipulation</li>
 </ol>
