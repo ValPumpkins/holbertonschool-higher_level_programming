@@ -41,3 +41,5 @@ python-almost_a_circle/.coverage
 python-almost_a_circle/coverage.xml
 python-almost_a_circle/setup.cfg
 
+# HTML files
+javascript-dom_manipulation/*-main.html
